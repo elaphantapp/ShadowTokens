@@ -1,0 +1,5 @@
+initializing Home Bridge Validators with following parameters:
+
+REQUIRED_NUMBER_OF_VALIDATORS: 1, VALIDATORS: 0x4456D699Fb0b98350A910B912c6fA035148b1b6F, VALIDATORS_OWNER: 0xcdbb781AC508B19c126646E9aEDF1475144c0262
+url ===> http://node-testnet-017.elastos.org:20636
+Error: web3 RPC failed: {"code":-32000,"message":"gas required exceeds allowance (8000000) or always failing transaction"}

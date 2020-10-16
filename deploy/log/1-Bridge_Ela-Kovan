@@ -1,0 +1,151 @@
+npm run deploy
+
+> deploy@1.0.0 deploy /Users/zhouhe/blockchain/poanetwork/tokenbridge-contracts/deploy
+> if test "$NOFLAT" != "true" ; then cd ..; npm run flatten; cd deploy; fi && node deploy.js
+
+
+> tokenbridge-contracts@5.4.1 flatten /Users/zhouhe/blockchain/poanetwork/tokenbridge-contracts
+> bash flatten.sh
+
+Flattening common bridge contracts
+Flattening bridge validators contracts
+Flattening contracts related to native-to-erc bridge
+Flattening contracts related to erc-to-erc bridge
+Flattening contracts related to erc-to-native bridge
+Flattening contracts related to arbitrary-message bridge
+Flattening contracts related to erc677 to erc677 on top of AMB bridge
+Flattening contracts related to stake token mediators
+Flattening contracts related to native-to-erc on top of AMB bridge
+Flattening contracts related to erc-to-native on top of AMB bridge
+Flattening contracts related to multi-erc-to-erc on top of AMB bridge
+Bridge mode: ARBITRARY_MESSAGE
+========================================
+Deploying Arbitrary Message Bridge at Home
+========================================
+
+deploying storage for home validators
+pending txHash 0xde139f62ceef75ca0fe620fea3675272d204ee13afe53e0fbf20315b0c1273b0
+It was not possible to verify 0x3e8fd77ab3582d3e193efd42a4aef26f5e1bfbf6 in blockscout
+[Home] BridgeValidators Storage:  0x3e8FD77AB3582d3e193EfD42a4AEf26F5e1Bfbf6
+
+deploying implementation for home validators
+pending txHash 0x4d36bd8aab78f55b691ec553b5b9dc01fcdf51a06c190a636814cb688a585e6f
+It was not possible to verify 0x1cc5b3dfd9e1363d00ff8ed83724a5c2ae7f6dc7 in blockscout
+[Home] BridgeValidators Implementation:  0x1CC5B3DFD9E1363d00fF8eD83724A5C2ae7F6DC7
+
+hooking up eternal storage to BridgeValidators
+sendRawTxHome ===> 
+pending txHash 0xff01ccf42174f1dd11166d67598a1624e9ae53688ea250b2b14cfb7e85d5d148
+
+initializing Home Bridge Validators with following parameters:
+
+REQUIRED_NUMBER_OF_VALIDATORS: 1, VALIDATORS: 0xF16aFa5bd816C84844864ed1109F21144eF49aA4, VALIDATORS_OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252
+initializeValidators ===> 111111
+initializeValidators ===> 222222
+sendRawTxHome ===> 
+pending txHash 0xb239dda15a7b8763dc272c07b4cfab1b25f6a2ee61bb5a35a03bf95191917c3d
+initializeValidators ===> 333333
+initializeValidators ===>, {"blockHash":"0x3a4a4cd49ddf91e3e9134a26b74c60a2954f205aed392caa68879537daee95b6","blockNumber":"0x277663","contractAddress":null,"cumulativeGasUsed":"0x2d23d","from":"0x8d8d8de95df82455c887661ada3f3fa07e93fbbd","gasUsed":"0x2d23d","logs":[{"address":"0x3e8fd77ab3582d3e193efd42a4aef26f5e1bfbf6","topics":["0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"],"data":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000008905a41c79ed1f5dc9a5bae50d447af186ace252","blockNumber":"0x277663","transactionHash":"0xb239dda15a7b8763dc272c07b4cfab1b25f6a2ee61bb5a35a03bf95191917c3d","transactionIndex":"0x0","blockHash":"0x3a4a4cd49ddf91e3e9134a26b74c60a2954f205aed392caa68879537daee95b6","logIndex":"0x0","removed":false},{"address":"0x3e8fd77ab3582d3e193efd42a4aef26f5e1bfbf6","topics":["0xe366c1c0452ed8eec96861e9e54141ebff23c9ec89fe27b996b45f5ec3884987","0x000000000000000000000000f16afa5bd816c84844864ed1109f21144ef49aa4"],"data":"0x","blockNumber":"0x277663","transactionHash":"0xb239dda15a7b8763dc272c07b4cfab1b25f6a2ee61bb5a35a03bf95191917c3d","transactionIndex":"0x0","blockHash":"0x3a4a4cd49ddf91e3e9134a26b74c60a2954f205aed392caa68879537daee95b6","logIndex":"0x1","removed":false},{"address":"0x3e8fd77ab3582d3e193efd42a4aef26f5e1bfbf6","topics":["0x10dbc913050d3180c3b99f7da91fd514af7cbc9c1bb59a0da5d2bc38f0cf395a"],"data":"0x0000000000000000000000000000000000000000000000000000000000000001","blockNumber":"0x277663","transactionHash":"0xb239dda15a7b8763dc272c07b4cfab1b25f6a2ee61bb5a35a03bf95191917c3d","transactionIndex":"0x0","blockHash":"0x3a4a4cd49ddf91e3e9134a26b74c60a2954f205aed392caa68879537daee95b6","logIndex":"0x2","removed":false}],"logsBloom":"0x00000000000020000000000000000000000000000000000000800000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000002001000000000000000000000000000000000000000000000000001000000100000000000000000000000000040040400000000000000000000000000000000000000000000000000000000000000000080000000000000000100000000020000000000000000000000000000000000000000000000000000000000000000000000000000000400000000000008000000004000000000000000000000000000000000000000000400000000000000100","status":"0x1","to":"0x3e8fd77ab3582d3e193efd42a4aef26f5e1bfbf6","transactionHash":"0xb239dda15a7b8763dc272c07b4cfab1b25f6a2ee61bb5a35a03bf95191917c3d","transactionIndex":"0x0"}
+initializeValidators ===> 444444
+transferring proxy ownership to multisig for Validators Proxy contract
+sendRawTxHome ===> 
+pending txHash 0xe3153cc0ae954e0da299a7623b1fbdfa615637a0371baae36570a130a28bf009
+
+deploying HomeAMBridge storage
+
+pending txHash 0xbed81f3b049944a2c2b28fbde3d34589c35f49dcc01c0d0787846bdaaec12e0a
+0x7c68fccd8ea7231d6f647f5ae5b59ddb3b5626a8 verified in blockscout
+[Home] HomeAMBridge Storage:  0x7c68fccd8eA7231D6F647f5Ae5B59DDb3b5626a8
+
+deploying HomeAMBridge implementation
+
+pending txHash 0x44f2a5c90f58b30f2c9c0747261d09f95cb75fe9a378dc498a8150143b87a06c
+0xffa77e978778c911b13637337bd1506717836cee verified in blockscout
+[Home] HomeAMBridge Implementation:  0xfFA77E978778C911B13637337Bd1506717836CeE
+
+hooking up HomeAMBridge storage to HomeAMBridge implementation
+sendRawTxHome ===> 
+pending txHash 0xf216bce2e1d60d451f9d3ba595e76ee372f66bb1d0139fafea2c6421f7701020
+
+initializing Home Bridge with following parameters:
+
+SOURCE_CHAIN_ID: 21, DESTINATION_CHAIN_ID: 42, Home Validators: 0x3e8FD77AB3582d3e193EfD42a4AEf26F5e1Bfbf6,
+  HOME_MAX_AMOUNT_PER_TX (gas limit per call): 1500000000000000000000000,
+  HOME_GAS_PRICE: 1000000000, HOME_REQUIRED_BLOCK_CONFIRMATIONS : 1
+  
+sendRawTxHome ===> 
+pending txHash 0x07f435c417a16a67ecbf03f18eb86e4148ef4794619fbecb509b2ca26807ad11
+transferring proxy ownership to multisig for Home bridge Proxy contract
+sendRawTxHome ===> 
+pending txHash 0xd150ff1868ef2d5d1de78c889a8a2b40da63d8f2ed60dfc728745dd317f8074b
+
+Deployment of Arbitrary Message Bridge at Home completed
+
+========================================
+Deploying Arbitrary Message Bridge at Foreign
+========================================
+
+deploying storage for foreign validators
+pending txHash 0x042ca73f60fb6f864c1561c14b6eedd395c85f92398ff4588839e09a9ead4d9e
+It was not possible to verify 0x84f5fab40916ae9e205005e2ec803770978fcf02 in etherscan
+[Foreign] BridgeValidators Storage:  0x84f5FAB40916aE9e205005E2EC803770978fcF02
+
+deploying implementation for foreign validators
+pending txHash 0x7bec0692f59fdeeaa502782964ba9e50ba6b7439ffc722ea4cecfd725ed229a2
+It was not possible to verify 0x9508571b6cbff4baee1139b73eed76e615b2084e in etherscan
+[Foreign] BridgeValidators Implementation:  0x9508571B6CBFF4bAEe1139b73eED76E615b2084E
+
+hooking up eternal storage to BridgeValidators
+pending txHash 0xaf7608eb38fd1b6de4eb56ba6de4fdea85d7a22767564f73f7ab24e9e02b5de8
+
+initializing Foreign Bridge Validators with following parameters:
+
+REQUIRED_NUMBER_OF_VALIDATORS: 1, VALIDATORS: 0xF16aFa5bd816C84844864ed1109F21144eF49aA4, VALIDATORS_OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252
+initializeValidators ===> 111111
+initializeValidators ===> 222222
+pending txHash 0x885eb53b89bb6df897e41e9b7503f3156060ebfe45f92455165f1e5f7b073b2d
+initializeValidators ===> 333333
+initializeValidators ===>, {"blockHash":"0x07bd3d8ba843a024980fb1b52bcb1a7ecbd97a4de3fbc6496165c9da7e6ab09b","blockNumber":"0x1486b59","contractAddress":null,"cumulativeGasUsed":"0x296902","from":"0x8d8d8de95df82455c887661ada3f3fa07e93fbbd","gasUsed":"0x2d23d","logs":[{"address":"0x84f5fab40916ae9e205005e2ec803770978fcf02","blockHash":"0x07bd3d8ba843a024980fb1b52bcb1a7ecbd97a4de3fbc6496165c9da7e6ab09b","blockNumber":"0x1486b59","data":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000008905a41c79ed1f5dc9a5bae50d447af186ace252","logIndex":"0x0","removed":false,"topics":["0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"],"transactionHash":"0x885eb53b89bb6df897e41e9b7503f3156060ebfe45f92455165f1e5f7b073b2d","transactionIndex":"0x1","transactionLogIndex":"0x0","type":"mined"},{"address":"0x84f5fab40916ae9e205005e2ec803770978fcf02","blockHash":"0x07bd3d8ba843a024980fb1b52bcb1a7ecbd97a4de3fbc6496165c9da7e6ab09b","blockNumber":"0x1486b59","data":"0x","logIndex":"0x1","removed":false,"topics":["0xe366c1c0452ed8eec96861e9e54141ebff23c9ec89fe27b996b45f5ec3884987","0x000000000000000000000000f16afa5bd816c84844864ed1109f21144ef49aa4"],"transactionHash":"0x885eb53b89bb6df897e41e9b7503f3156060ebfe45f92455165f1e5f7b073b2d","transactionIndex":"0x1","transactionLogIndex":"0x1","type":"mined"},{"address":"0x84f5fab40916ae9e205005e2ec803770978fcf02","blockHash":"0x07bd3d8ba843a024980fb1b52bcb1a7ecbd97a4de3fbc6496165c9da7e6ab09b","blockNumber":"0x1486b59","data":"0x0000000000000000000000000000000000000000000000000000000000000001","logIndex":"0x2","removed":false,"topics":["0x10dbc913050d3180c3b99f7da91fd514af7cbc9c1bb59a0da5d2bc38f0cf395a"],"transactionHash":"0x885eb53b89bb6df897e41e9b7503f3156060ebfe45f92455165f1e5f7b073b2d","transactionIndex":"0x1","transactionLogIndex":"0x2","type":"mined"}],"logsBloom":"0x00000000000020000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002001000000000000000000000000000000000000000000000000001000000100000000000000000000040000000000410000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000020000000000000000000000000000000000000000000000800000000000000000000000000000000400000000000000000000004000000000000000000000000000000000000000000400000000000000000","root":null,"status":"0x1","to":"0x84f5fab40916ae9e205005e2ec803770978fcf02","transactionHash":"0x885eb53b89bb6df897e41e9b7503f3156060ebfe45f92455165f1e5f7b073b2d","transactionIndex":"0x1"}
+initializeValidators ===> 444444
+
+Transferring ownership of ValidatorsProxy
+
+pending txHash 0xb420474d08df606fda8001c7c2d04cf036c7c2d0e0238c8696b2ea93099bc6cb
+
+deploying ForeignAMBridge storage
+
+pending txHash 0xb06a672047f57bcbcd662bbb7531cbac797d3fc5029a5aa41a0bbbb433e22a5c
+It was not possible to verify 0x0575b0b760197207529eb826be2abbad2167b825 in etherscan
+[Foreign] ForeignAMBridge Storage:  0x0575b0b760197207529eB826bE2abbad2167b825
+
+deploying ForeignAMBridge implementation
+
+pending txHash 0x32afc7bb30060f91efc14281ef483e8797ab298e6b12824fab7d0be61ae1d1da
+It was not possible to verify 0xda27adce063ddbda07028ab8ce66f736e17e718d in etherscan
+[Foreign] ForeignAMBridge Implementation:  0xdA27adCe063DdbdA07028ab8Ce66F736e17e718D
+
+hooking up ForeignAMBridge storage to ForeignAMBridge implementation
+pending txHash 0xe20515cc48f572a14eac72991c3f9f7e156d18348f85fab98e4d09d629807d84
+
+initializing Foreign Bridge with following parameters:
+
+
+initializing Foreign Bridge with following parameters:
+
+SOURCE_CHAIN_ID: 42, DESTINATION_CHAIN_ID: 21, Foreign Validators: 0x84f5FAB40916aE9e205005E2EC803770978fcF02,
+  FOREIGN_MAX_AMOUNT_PER_TX (gas limit per call): 750000000000000000000000,
+  FOREIGN_GAS_PRICE: 10000000000, FOREIGN_REQUIRED_BLOCK_CONFIRMATIONS : 8
+  
+pending txHash 0x15bc1e731291b52218b2ee946a6f49e65be5ef2a0a50d96c5bbaf1c60b77b62d
+transferring proxy ownership to multisig for Foreign bridge Proxy contract
+pending txHash 0xd9b026c052ec91d9dfc856ac990da5d085b89c522363ad1e86b01f2dbe0374b9
+
+Deployment of Arbitrary Message Bridge at Foreign completed
+
+
+Deployment has been completed.
+
+
+[   Home  ] HomeBridge: 0x7c68fccd8eA7231D6F647f5Ae5B59DDb3b5626a8 at block 2586215
+[ Foreign ] ForeignBridge: 0x0575b0b760197207529eB826bE2abbad2167b825 at block 21523292
+Contracts Deployment have been saved to `bridgeDeploymentResults.json`
