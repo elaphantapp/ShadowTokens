@@ -1085,3 +1085,11 @@ HOME_ERC677_TOKEN_IMAGE=
 # The api key of the explorer api, if required, used to verify all the deployed contracts in Foreign network.
 #FOREIGN_EXPLORER_API_KEY=
 ```
+
+ <!-- # The api url of an explorer to verify all the deployed contracts in Home network.
+ HOME_EXPLORER_URL=https://testnet.elaeth.io/api
+ # The api url of an explorer to verify all the deployed contracts in Foreign network.
+ FOREIGN_EXPLORER_URL=https://api-kovan.etherscan.io/api
+ # The api key of the explorer api, if required, used to verify all
+ # the deployed contracts in Foreign network.
+ FOREIGN_EXPLORER_API_KEY=3HHGNXDBAFXGCU52DI2DYABPNF18QQ8UBS -->

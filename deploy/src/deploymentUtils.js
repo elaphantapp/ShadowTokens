@@ -92,7 +92,6 @@ async function deployContract(contractJson, args, { from, network, nonce }) {
 }
 
 async function sendRawTxHome(options) {
-  console.log('sendRawTxHome ===> ');
   return sendRawTx({
     ...options,
     gasPrice: HOME_DEPLOYMENT_GAS_PRICE
@@ -118,9 +117,7 @@ async function sendRawTx({ data, nonce, to, privateKey, url, gasPrice, value }) 
     // console.log('txToEstimateGas ===>', txToEstimateGas);
     // const estimatedGas = BigNumber(await sendNodeRequest(url, 'eth_estimateGas', txToEstimateGas))
     const estimatedGas = BigNumber(8000000);
-    // console.log('estimatedGas ===>','8000000');
-    // console.log('url ===>',url);
-    // console.log('estimatedGas ===>',estimatedGas.toString());
+    console.log('estimatedGas ===>','8000000');
 
     const blockData = await sendNodeRequest(url, 'eth_getBlockByNumber', ['latest', false])
     const blockGasLimit = BigNumber(blockData.gasLimit)
@@ -152,7 +149,6 @@ async function sendRawTx({ data, nonce, to, privateKey, url, gasPrice, value }) 
     console.log('pending txHash', txHash)
     return await getReceipt(txHash, url)
   } catch (e) {
-    console.log('sendRawTx ERROR ===> ');
     console.error(e)
   }
 }

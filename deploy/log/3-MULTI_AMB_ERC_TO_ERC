@@ -1,0 +1,108 @@
+npm run deploy
+
+> deploy@1.0.0 deploy /Users/zhouhe/blockchain/poanetwork/tokenbridge-contracts/deploy
+> if test "$NOFLAT" != "true" ; then cd ..; npm run flatten; cd deploy; fi && node deploy.js
+
+
+> tokenbridge-contracts@5.4.1 flatten /Users/zhouhe/blockchain/poanetwork/tokenbridge-contracts
+> bash flatten.sh
+
+Flattening common bridge contracts
+Flattening bridge validators contracts
+Flattening contracts related to native-to-erc bridge
+Flattening contracts related to erc-to-erc bridge
+Flattening contracts related to erc-to-native bridge
+Flattening contracts related to arbitrary-message bridge
+Flattening contracts related to erc677 to erc677 on top of AMB bridge
+Flattening contracts related to stake token mediators
+Flattening contracts related to native-to-erc on top of AMB bridge
+Flattening contracts related to erc-to-native on top of AMB bridge
+Flattening contracts related to multi-erc-to-erc on top of AMB bridge
+Bridge mode: MULTI_AMB_ERC_TO_ERC
+
+[Home] Deploying Bridge Mediator storage
+
+pending txHash 0x0bfccc81f118571cd216d2d663da543971b9cf08aaeb22e8e0fefa73d173c720
+0x72cbbe0b5c9216fab0b20b363ffdf94c003795fd verified in blockscout
+[Home] Bridge Mediator Storage:  0x72cBBE0b5c9216fAB0B20b363FfdF94c003795Fd
+
+[Home] Deploying Bridge Mediator implementation
+
+pending txHash 0xdc2acf8b8f0b796a2c7d31f3bb04dfe3fd0d07299bac7c8a43126e243fa96cce
+0x0ab914e50c0318ba7702baf14062486df61abbf3 verified in blockscout
+[Home] Bridge Mediator Implementation:  0x0aB914E50C0318bA7702baF14062486dF61AbBf3
+
+[Home] Hooking up Mediator storage to Mediator implementation
+sendRawTxHome ===> 
+pending txHash 0x0e390290b3888e08cf41d1c029feb4d0fb6b715f9758bb88d3aaab969f935770
+
+[Home] Deploying new ERC677 token image
+pending txHash 0xe26923c86196c65e2f177c26946be1703797e38dbecf4f0c07ec2698fa811bc6
+0xd8048de4a08fdebb62fb5cb2d09ac637ed12ad88 verified in blockscout
+
+[Home] New ERC677 token image has been deployed:  0xD8048dE4a08fdEbb62Fb5cb2d09ac637Ed12AD88
+
+Home part of MULTI_AMB_ERC20_TO_ERC677 bridge deployed
+
+
+[Foreign] Deploying Bridge Mediator storage
+
+pending txHash 0x92a52f3a523fb996741eadbee1bf2c04f2dd624ded7fd7bfde065b4d2f42976c
+It was not possible to verify 0xf96b9bb749d577bd4f8389221508f18c8777d41d in etherscan
+[Foreign] Bridge Mediator Storage:  0xf96B9BB749D577Bd4F8389221508F18C8777d41d
+
+[Foreign] Deploying Bridge Mediator implementation
+
+pending txHash 0x32d204a9e2f2f98b2f9c9b1077b208fb33c94116fbc56aefc91bc654bc37b4a5
+It was not possible to verify 0x1b74862aaaf70026e1d3b9a912265b4680e4d9f6 in etherscan
+[Foreign] Bridge Mediator Implementation:  0x1B74862AAAF70026E1D3b9a912265B4680e4d9F6
+
+[Foreign] Hooking up Mediator storage to Mediator implementation
+pending txHash 0xa9e55617cf01e339bcf08df3f165197717046e6706abfcab853da057b4da2b85
+
+Foreign part of MULTI_AMB_ERC20_TO_ERC677 bridge deployed
+
+
+[Home] Initializing Bridge Mediator with following parameters:
+
+    AMB contract: 0x7c68fccd8eA7231D6F647f5Ae5B59DDb3b5626a8,
+    Mediator contract: 0xf96B9BB749D577Bd4F8389221508F18C8777d41d,
+    DAILY_LIMIT : 30000000000000000000000000 which is 30000000 in eth,
+    MAX_AMOUNT_PER_TX: 1500000000000000000000000 which is 1500000 in eth,
+    MIN_AMOUNT_PER_TX: 500000000000000000 which is 0.5 in eth,
+    EXECUTION_DAILY_LIMIT : 15000000000000000000000000 which is 15000000 in eth,
+    EXECUTION_MAX_AMOUNT_PER_TX: 750000000000000000000000 which is 750000 in eth,
+    MEDIATOR_REQUEST_GAS_LIMIT : 8000000,
+    OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252,
+    TOKEN_IMAGE: 0xD8048dE4a08fdEbb62Fb5cb2d09ac637Ed12AD88,
+    REWARD_ADDRESS_LIST: [0x1fB6c68f5577BD9ae610E9184c743a69Bde2c70D]
+  
+sendRawTxHome ===> 
+pending txHash 0xdeb2d5795739defdc1cbe4f4258d3815c41e5fe41b5ba667af37ace6e8272568
+
+[Home] Transferring bridge mediator proxy ownership to upgradeability admin
+sendRawTxHome ===> 
+pending txHash 0x8b50b0aa776832e1ff18cf727a8bd608d374018ab63a091a487c914c840943a3
+
+[Foreign] Initializing Bridge Mediator with following parameters:
+
+    AMB contract: 0x0575b0b760197207529eB826bE2abbad2167b825,
+    Mediator contract: 0x72cBBE0b5c9216fAB0B20b363FfdF94c003795Fd,
+    DAILY_LIMIT : 15000000000000000000000000 which is 15000000 in eth,
+    MAX_AMOUNT_PER_TX: 750000000000000000000000 which is 750000 in eth,
+    MIN_AMOUNT_PER_TX: 500000000000000000 which is 0.5 in eth,
+    EXECUTION_DAILY_LIMIT : 30000000000000000000000000 which is 30000000 in eth,
+    EXECUTION_MAX_AMOUNT_PER_TX: 1500000000000000000000000 which is 1500000 in eth,
+    MEDIATOR_REQUEST_GAS_LIMIT : 8000000,
+    OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252
+pending txHash 0x925c8670110bc5d98f6a11503e5b2a551e2738eca15bb22bc2022c5524406db7
+
+[Foreign] Transferring bridge mediator proxy ownership to upgradeability admin
+pending txHash 0x5d3990275b3a71739091d4a26d18e2054d5e44c58f3e5baec7c9a2406209bb8d
+
+Deployment has been completed.
+
+
+[   Home  ] Bridge Mediator: 0x72cBBE0b5c9216fAB0B20b363FfdF94c003795Fd
+[ Foreign ] Bridge Mediator: 0xf96B9BB749D577Bd4F8389221508F18C8777d41d
+Contracts Deployment have been saved to `bridgeDeploymentResults.json`

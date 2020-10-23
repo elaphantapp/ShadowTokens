@@ -1,0 +1,185 @@
+npm run deploy
+
+> deploy@1.0.0 deploy /Users/zhouhe/blockchain/poanetwork/tokenbridge-contracts/deploy
+> if test "$NOFLAT" != "true" ; then cd ..; npm run flatten; cd deploy; fi && node deploy.js
+
+
+> tokenbridge-contracts@5.4.1 flatten /Users/zhouhe/blockchain/poanetwork/tokenbridge-contracts
+> bash flatten.sh
+
+Flattening common bridge contracts
+Flattening bridge validators contracts
+Flattening contracts related to native-to-erc bridge
+Flattening contracts related to erc-to-erc bridge
+Flattening contracts related to erc-to-native bridge
+Flattening contracts related to arbitrary-message bridge
+Flattening contracts related to erc677 to erc677 on top of AMB bridge
+Flattening contracts related to stake token mediators
+Flattening contracts related to native-to-erc on top of AMB bridge
+Flattening contracts related to erc-to-native on top of AMB bridge
+Flattening contracts related to multi-erc-to-erc on top of AMB bridge
+Bridge mode: NATIVE_TO_ERC
+deploying storage for home validators
+pending txHash 0x1ab36858f52eea4b348d7dc7fe430e23c74ad77a581f87cb93539365c9719d20
+0x8b3565ca2ded04ac9b68a09c49f18c8ea46f7933 verified in blockscout
+[Home] BridgeValidators Storage:  0x8b3565Ca2DeD04ac9B68a09C49F18c8Ea46F7933
+
+deploying implementation for home validators
+pending txHash 0x80afca854404c41809051c064ffa823436b2ae5acb8b1b5731cb067a83040fcb
+0xa02d208ebf95b44f4501fcd0a556f89ee5012065 verified in blockscout
+[Home] BridgeValidators Implementation:  0xA02D208EbF95b44F4501fcD0a556f89ee5012065
+
+hooking up eternal storage to BridgeValidators
+sendRawTxHome ===> 
+pending txHash 0xea4e175d7c54f46aa2831b4b924cacd46e91923a2d9a8ba6e81da70b2699c489
+
+initializing Home Bridge Validators with following parameters:
+
+REQUIRED_NUMBER_OF_VALIDATORS: 1, VALIDATORS: 0xF16aFa5bd816C84844864ed1109F21144eF49aA4, VALIDATORS_OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252
+initializeValidators ===> 111111
+initializeValidators ===> 222222
+sendRawTxHome ===> 
+pending txHash 0xade2ba7262857d86d4dce9173a9f2ccf02fa11adc313398036d035c29814dc45
+initializeValidators ===> 333333
+initializeValidators ===>, {"blockHash":"0x2b5fd7ede376b443c97866ae3374b3e0233ab6c04f6220f9d9012c7f65d93de4","blockNumber":"0x28bfd7","contractAddress":null,"cumulativeGasUsed":"0x2d23d","from":"0x8d8d8de95df82455c887661ada3f3fa07e93fbbd","gasUsed":"0x2d23d","logs":[{"address":"0x8b3565ca2ded04ac9b68a09c49f18c8ea46f7933","topics":["0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"],"data":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000008905a41c79ed1f5dc9a5bae50d447af186ace252","blockNumber":"0x28bfd7","transactionHash":"0xade2ba7262857d86d4dce9173a9f2ccf02fa11adc313398036d035c29814dc45","transactionIndex":"0x0","blockHash":"0x2b5fd7ede376b443c97866ae3374b3e0233ab6c04f6220f9d9012c7f65d93de4","logIndex":"0x0","removed":false},{"address":"0x8b3565ca2ded04ac9b68a09c49f18c8ea46f7933","topics":["0xe366c1c0452ed8eec96861e9e54141ebff23c9ec89fe27b996b45f5ec3884987","0x000000000000000000000000f16afa5bd816c84844864ed1109f21144ef49aa4"],"data":"0x","blockNumber":"0x28bfd7","transactionHash":"0xade2ba7262857d86d4dce9173a9f2ccf02fa11adc313398036d035c29814dc45","transactionIndex":"0x0","blockHash":"0x2b5fd7ede376b443c97866ae3374b3e0233ab6c04f6220f9d9012c7f65d93de4","logIndex":"0x1","removed":false},{"address":"0x8b3565ca2ded04ac9b68a09c49f18c8ea46f7933","topics":["0x10dbc913050d3180c3b99f7da91fd514af7cbc9c1bb59a0da5d2bc38f0cf395a"],"data":"0x0000000000000000000000000000000000000000000000000000000000000001","blockNumber":"0x28bfd7","transactionHash":"0xade2ba7262857d86d4dce9173a9f2ccf02fa11adc313398036d035c29814dc45","transactionIndex":"0x0","blockHash":"0x2b5fd7ede376b443c97866ae3374b3e0233ab6c04f6220f9d9012c7f65d93de4","logIndex":"0x2","removed":false}],"logsBloom":"0x00000000000020000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000002001000000000000000000000000000000000000000000000000001000000100000000000000000000000000000000400000000000000000000000000000000000000000000000000000001000000000080000000000000000100000000020000000000000000000000000000000000400000000000000000000000000000000000000000000400000000000008000000004000000000000000000000000000000000000000000400000000000000100","status":"0x1","to":"0x8b3565ca2ded04ac9b68a09c49f18c8ea46f7933","transactionHash":"0xade2ba7262857d86d4dce9173a9f2ccf02fa11adc313398036d035c29814dc45","transactionIndex":"0x0"}
+initializeValidators ===> 444444
+transferring proxy ownership to multisig for Validators Proxy contract
+sendRawTxHome ===> 
+pending txHash 0xac20e12239606d7ef2fe9f2def8bbafe4df0b442b8dca42bdba4416a3bf8c055
+
+deploying homeBridge storage
+
+pending txHash 0x9df01069d5340ede6ed8daceecb4056928196df13de803023f823d0512ca57c4
+0xac7915a4f3d32e6aa5a2dd91e6e6e6523a276d3d verified in blockscout
+[Home] HomeBridge Storage:  0xac7915A4F3D32e6Aa5a2Dd91e6E6E6523A276D3D
+
+deploying homeBridge implementation
+
+pending txHash 0xa0fb342f11e94fdde709317b0042796cfe607ad49ca388a55644e4a85fa03cb2
+0xdd9666dda281ed0c59665a411d0121282dcbf6be verified in blockscout
+[Home] HomeBridge Implementation:  0xdD9666Dda281ed0C59665a411D0121282dCbF6Be
+
+hooking up HomeBridge storage to HomeBridge implementation
+sendRawTxHome ===> 
+pending txHash 0x9f440d9c417f93d546252fd4f9511b6f27b2e8cfb30aa038ae5d52e3bef22806
+
+initializing Home Bridge with following parameters:
+
+Home Validators: 0x8b3565Ca2DeD04ac9B68a09C49F18c8Ea46F7933,
+  HOME_DAILY_LIMIT : 30000000000000000000000000 which is 30000000 in eth,
+  HOME_MAX_AMOUNT_PER_TX: 1500000000000000000000000 which is 1500000 in eth,
+  HOME_MIN_AMOUNT_PER_TX: 500000000000000000 which is 0.5 in eth,
+  HOME_GAS_PRICE: 1000000000, HOME_REQUIRED_BLOCK_CONFIRMATIONS : 1,
+    FOREIGN_DAILY_LIMIT: 15000000000000000000000000 which is 15000000 in eth,
+  FOREIGN_MAX_AMOUNT_PER_TX: 750000000000000000000000 which is 750000 in eth,
+  HOME_BRIDGE_OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252,
+  FOREIGN_TO_HOME_DECIMAL_SHIFT: 0
+  
+sendRawTxHome ===> 
+pending txHash 0x3fbbbf48054346f04cc9199dc504a0de47440a6bea797a13efaa3930ee586067
+transferring proxy ownership to multisig for Home bridge Proxy contract
+sendRawTxHome ===> 
+pending txHash 0x7a58d4b9920f27ff8899f296a2eafa2dbe89e423ffaf97349c8cdf8258921229
+
+Home Deployment Bridge completed
+
+========================================
+deploying ForeignBridge
+========================================
+
+
+[Foreign] deploying bridgeable token
+pending txHash 0x4f65ee8614afc9159e706507bb93d1c7538998114501c010d349b9d16685e093
+It was not possible to verify 0xd30334fc508ab6557d3b53d5cf8a8abc691fce7e in etherscan
+[Foreign] Bridgeable Token:  0xd30334fC508ab6557d3B53d5Cf8a8AbC691FcE7e
+
+deploying storage for foreign validators
+pending txHash 0xe3565bc9b1035aebbc61d85e319e3d8d8b6b77147aa12c3ae1b200ceba519d12
+It was not possible to verify 0xf0e4537062263c1a8b63a9c44f557c501d65c7d2 in etherscan
+[Foreign] BridgeValidators Storage:  0xF0e4537062263C1a8b63A9c44f557C501D65c7D2
+
+deploying implementation for foreign validators
+pending txHash 0x2ed62e6c320fb0a800a8f1513cb6ee835bd83cff63b67fc900a7e01a83256e73
+It was not possible to verify 0x180e3237a57e72ecdd0567f5b2e65a641c630822 in etherscan
+[Foreign] BridgeValidators Implementation:  0x180E3237a57e72ecDD0567f5b2e65A641C630822
+
+hooking up eternal storage to BridgeValidators
+pending txHash 0xd4dfa40467d32ff157863edbad9002e2b4e99cc5923e2d97785b19e32919c789
+
+initializing Foreign Bridge Validators with following parameters:
+
+REQUIRED_NUMBER_OF_VALIDATORS: 1, VALIDATORS: 0xF16aFa5bd816C84844864ed1109F21144eF49aA4, VALIDATORS_OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252
+initializeValidators ===> 111111
+initializeValidators ===> 222222
+pending txHash 0x116dc4d32b2fc3f40f3b0bd30bfffbb143b4959eb9331738394f49e7c7b9b427
+initializeValidators ===> 333333
+initializeValidators ===>, {"blockHash":"0x333ce7b02f2256fff8e92bcdccf85b130217485b769397c214bc0416edc4cb99","blockNumber":"0x149acf9","contractAddress":null,"cumulativeGasUsed":"0x7d098","from":"0x8d8d8de95df82455c887661ada3f3fa07e93fbbd","gasUsed":"0x2d23d","logs":[{"address":"0xf0e4537062263c1a8b63a9c44f557c501d65c7d2","blockHash":"0x333ce7b02f2256fff8e92bcdccf85b130217485b769397c214bc0416edc4cb99","blockNumber":"0x149acf9","data":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000008905a41c79ed1f5dc9a5bae50d447af186ace252","logIndex":"0xc","removed":false,"topics":["0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"],"transactionHash":"0x116dc4d32b2fc3f40f3b0bd30bfffbb143b4959eb9331738394f49e7c7b9b427","transactionIndex":"0x2","transactionLogIndex":"0x0","type":"mined"},{"address":"0xf0e4537062263c1a8b63a9c44f557c501d65c7d2","blockHash":"0x333ce7b02f2256fff8e92bcdccf85b130217485b769397c214bc0416edc4cb99","blockNumber":"0x149acf9","data":"0x","logIndex":"0xd","removed":false,"topics":["0xe366c1c0452ed8eec96861e9e54141ebff23c9ec89fe27b996b45f5ec3884987","0x000000000000000000000000f16afa5bd816c84844864ed1109f21144ef49aa4"],"transactionHash":"0x116dc4d32b2fc3f40f3b0bd30bfffbb143b4959eb9331738394f49e7c7b9b427","transactionIndex":"0x2","transactionLogIndex":"0x1","type":"mined"},{"address":"0xf0e4537062263c1a8b63a9c44f557c501d65c7d2","blockHash":"0x333ce7b02f2256fff8e92bcdccf85b130217485b769397c214bc0416edc4cb99","blockNumber":"0x149acf9","data":"0x0000000000000000000000000000000000000000000000000000000000000001","logIndex":"0xe","removed":false,"topics":["0x10dbc913050d3180c3b99f7da91fd514af7cbc9c1bb59a0da5d2bc38f0cf395a"],"transactionHash":"0x116dc4d32b2fc3f40f3b0bd30bfffbb143b4959eb9331738394f49e7c7b9b427","transactionIndex":"0x2","transactionLogIndex":"0x2","type":"mined"}],"logsBloom":"0x00000000080020000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002001000000000000000000000000000000000000000000000000001000000100000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000020200000000000000000000000000000000000000000000000000000000000000000000000000000400000000000000000800004000000000000000000000000000000000000000000400000000000000000","root":null,"status":"0x1","to":"0xf0e4537062263c1a8b63a9c44f557c501d65c7d2","transactionHash":"0x116dc4d32b2fc3f40f3b0bd30bfffbb143b4959eb9331738394f49e7c7b9b427","transactionIndex":"0x2"}
+initializeValidators ===> 444444
+
+Transferring ownership of ValidatorsProxy
+
+pending txHash 0xebbffd23743b5ff32df03ec49917a0ab7895a639e165eade47d8c21ce080af3e
+
+deploying foreignBridge storage
+
+pending txHash 0x97247f06bbc5d8f133c1f5ef33a85a7f6ad21025a73e619c4fd2b48777892806
+It was not possible to verify 0x45801cab4e1b1201b0a818c80ec7f9b0e00147f3 in etherscan
+[Foreign] ForeignBridge Storage:  0x45801CaB4e1b1201b0a818c80ec7f9b0e00147f3
+
+deploying foreignBridge implementation
+
+pending txHash 0xef69745ea3b0a69e45cbeb47f444d07ea6154b4773daa73fd8b5ff2cde6edf27
+It was not possible to verify 0xa292da9037e082f16175a62215c568fddd6cac45 in etherscan
+[Foreign] ForeignBridge Implementation:  0xa292dA9037E082F16175A62215c568fdDd6CaC45
+
+hooking up ForeignBridge storage to ForeignBridge implementation
+pending txHash 0x1e1a8957e845b18edc995d5abe20046bced72342e5c7d268290cd715e315ae3b
+
+initializing Foreign Bridge with following parameters:
+
+Foreign Validators: 0xF0e4537062263C1a8b63A9c44f557C501D65c7D2,
+  FOREIGN_DAILY_LIMIT : 15000000000000000000000000 which is 15000000 in eth,
+  FOREIGN_MAX_AMOUNT_PER_TX: 750000000000000000000000 which is 750000 in eth,
+  FOREIGN_MIN_AMOUNT_PER_TX: 500000000000000000 which is 0.5 in eth,
+  FOREIGN_GAS_PRICE: 10000000000, FOREIGN_REQUIRED_BLOCK_CONFIRMATIONS : 8,
+    HOME_DAILY_LIMIT: 30000000000000000000000000 which is 30000000 in eth,
+  HOME_MAX_AMOUNT_PER_TX: 1500000000000000000000000 which is 1500000 in eth,
+  FOREIGN_BRIDGE_OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252,
+  FOREIGN_TO_HOME_DECIMAL_SHIFT: 0
+  Home bridge Address: 0xac7915A4F3D32e6Aa5a2Dd91e6E6E6523A276D3D
+  
+pending txHash 0xc08a1a57e4afa73d7a65501e5846f1d80be574713a76721df04fd0d13810a464
+
+set bridge contract on ERC677BridgeToken
+pending txHash 0x9c0481fa1ac3489ce3cafdf39d86ca28ac1ab5c7dadf93051a0bacd10f67ca56
+transferring ownership of ERC677BridgeToken token to foreignBridge contract
+pending txHash 0x3335295531e0fddb4e6c90ac7b856b45879f5b707bdcbe7ba1e5dce19bfaf1e1
+transferring proxy ownership to multisig for foreign bridge Proxy contract
+pending txHash 0x225653b735f5b2d13c7feafc889c86e8f615386e86354962cb6d11fb2e8d9121
+
+Foreign Deployment Bridge completed
+
+
+Deployment has been completed.
+
+
+[   Home  ] HomeBridge: 0xac7915A4F3D32e6Aa5a2Dd91e6E6E6523A276D3D at block 2670555
+[ Foreign ] ForeignBridge: 0x45801CaB4e1b1201b0a818c80ec7f9b0e00147f3 at block 21605628
+[ Foreign ] ERC677 Bridgeable Token: 0xd30334fC508ab6557d3B53d5Cf8a8AbC691FcE7e
+
+{
+    "homeBridge": {
+        "address": "0xac7915A4F3D32e6Aa5a2Dd91e6E6E6523A276D3D",
+        "deployedBlockNumber": 2670555
+    },
+    "foreignBridge": {
+        "address": "0x45801CaB4e1b1201b0a818c80ec7f9b0e00147f3",
+        "deployedBlockNumber": 21605628,
+        "erc677": {
+            "address": "0xd30334fC508ab6557d3B53d5Cf8a8AbC691FcE7e"
+        }
+    }
+}
+
+### test
+https://docs.tokenbridge.net/kovan-sokol-amb-bridge/native-to-erc20-bridge-extension/transfer-spoa-through-native-to-erc20-extension-without-ui
