@@ -50,6 +50,7 @@ contract TokenProxy is Proxy {
         decimals = _decimals;
         owner = msg.sender; // msg.sender == HomeMultiAMBErc20ToErc677 mediator
         bridgeContractAddr = msg.sender;
+    
         DOMAIN_SEPARATOR = keccak256(
             abi.encode(
                 keccak256("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"),
