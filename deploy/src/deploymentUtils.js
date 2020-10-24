@@ -301,9 +301,7 @@ async function initializeValidators({
     )
     data = await contract.methods.initialize(requiredNumber, validators, owner).encodeABI()
   }
-  console.log('initializeValidators ===> 111111');
   const sendTx = getSendTxMethod(url)
-  console.log('initializeValidators ===> 222222');
   const result = await sendTx({
     data,
     nonce,
@@ -311,10 +309,7 @@ async function initializeValidators({
     privateKey: deploymentPrivateKey,
     url
   })
-  console.log('initializeValidators ===> 333333');
-  console.log('initializeValidators ===>,',JSON.stringify(result));
   if (result.status) {
-    console.log('initializeValidators ===> 444444');
     assert.strictEqual(Web3Utils.hexToNumber(result.status), 1, 'Transaction Failed')
   } else {
     await assertStateWithRetry(contract.methods.isInitialized().call, true)

@@ -1,0 +1,101 @@
+Bridge mode: AMB_NATIVE_TO_ERC
+
+[Home] Deploying Bridge Mediator storage
+
+pending txHash 0x7f6689954bb6ead33312c4a9225e24833df2cbbd3fa68f509096a9226c6dc8bc
+[Home] Bridge Mediator Storage:  0x155f3c04d64B39BC756a14A1d017d9295D23F61b
+
+[Home] Deploying Bridge Mediator implementation
+
+pending txHash 0x086430c19fa9922ce5ca6d9d72d3fb47dd346d8eda1c377ff892b3d23fbc3815
+[Home] Bridge Mediator Implementation:  0x67431853198E92a4bbc6DDdFe77F0902530F228c
+
+[Home] Hooking up Mediator storage to Mediator implementation
+pending txHash 0x77cc2b7ae3c08c3c91368f67014c3f6bf4b737401dea81e50124ef64833eb2cb
+
+[Home] Deploying Fee Manager
+
+    OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252,
+    Fee: 1000000000000000 which is 0.1%
+    Mediator: 0x155f3c04d64B39BC756a14A1d017d9295D23F61b
+  
+1: 0x5587835b183430e4fEd367b7c7300cAA9A1792bB
+pending txHash 0x97ec26c23da37e6daa4e1935584ccf680247ea6693fea6d3017a0691fe106376
+[Home] Fee Manager:  0xD7819AF155CF61D8874C6dCB7279405C4A444021
+
+Home part of Native-to-ERC20 bridge deployed
+
+
+[Foreign] Deploying Bridge Mediator storage
+
+pending txHash 0x18c9e623b55b1bdfaaee9dbcd30b9d08b532f40d196550bd3d7817b6ab0562d5
+[Foreign] Bridge Mediator Storage:  0x385d2C9291f7354bc54237DE26d0352eF651b797
+
+[Foreign] Deploying Bridge Mediator implementation
+
+pending txHash 0x46fd9cca3e5f64a0b9e3a588d9a2add05203a76d92756052cc229dcddb4d78e3
+[Foreign] Bridge Mediator Implementation:  0x720247AaB1F4635872486661F17F4e795424EE78
+
+[Foreign] Hooking up Mediator storage to Mediator implementation
+pending txHash 0x18d5587cdd365d19c9c968ac60ad0eb175bf708cf5b43ca5d72c8fd2f2365c5d
+
+[Foreign] Deploying Bridgeable token
+pending txHash 0x0050f04f5d3284d1df6c4c26c0720e323d46507c327ddc914f14c377b8390518
+[Foreign] Bridgeable Token:  0xf7184E6449a522988D65F794fa53DA44Eddd78Fd
+
+[Foreign] Set Bridge Mediator contract on Bridgeable token
+pending txHash 0xeb9aabcd3484bce38625821db206c5106d79af2ad338e38a5770301c6d35d4c3
+[Foreign] Transferring ownership of Bridgeable token to Bridge Mediator contract
+pending txHash 0x6def304caf93278919b0de3b09d31a6050a3db744b1b7a8ceed86cc5d75a176d
+
+Foreign part of Native-to-ERC20 bridge deployed
+
+
+[Home] Initializing Bridge Mediator with following parameters:
+
+    AMB contract: 0x0575b0b760197207529eB826bE2abbad2167b825,
+    Mediator contract: 0x385d2C9291f7354bc54237DE26d0352eF651b797,
+    DAILY_LIMIT : 30000000000000000000000000 which is 30000000 in eth,
+    MAX_AMOUNT_PER_TX: 1500000000000000000000000 which is 1500000 in eth,
+    MIN_AMOUNT_PER_TX: 500000000000000000 which is 0.5 in eth,
+    EXECUTION_DAILY_LIMIT : 15000000000000000000000000 which is 15000000 in eth,
+    EXECUTION_MAX_AMOUNT_PER_TX: 750000000000000000000000 which is 750000 in eth,
+    FOREIGN_TO_HOME_DECIMAL_SHIFT: 0,
+    MEDIATOR_REQUEST_GAS_LIMIT : 2000000,
+    OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252,
+    Fee Manager: 0xD7819AF155CF61D8874C6dCB7279405C4A444021,
+  
+pending txHash 0xa60d0caa703cc0c4cfa35d56fcc70ad670cbf6d6d8a7d5b3553ce56a3d7626d5
+
+[Home] Transferring bridge mediator proxy ownership to upgradeability admin
+pending txHash 0x65336a9cdd92c7ed3406e552a2b1daad40bc41613247a33acae0e7aac23de01d
+
+[Foreign] Initializing Bridge Mediator with following parameters:
+
+    AMB contract: 0x7c68fccd8eA7231D6F647f5Ae5B59DDb3b5626a8,
+    Mediator contract: 0x155f3c04d64B39BC756a14A1d017d9295D23F61b,
+    Token contract: 0xf7184E6449a522988D65F794fa53DA44Eddd78Fd,
+    DAILY_LIMIT : 15000000000000000000000000 which is 15000000 in eth,
+    MAX_AMOUNT_PER_TX: 750000000000000000000000 which is 750000 in eth,
+    MIN_AMOUNT_PER_TX: 500000000000000000 which is 0.5 in eth,
+    EXECUTION_DAILY_LIMIT : 30000000000000000000000000 which is 30000000 in eth,
+    EXECUTION_MAX_AMOUNT_PER_TX: 1500000000000000000000000 which is 1500000 in eth,
+    FOREIGN_TO_HOME_DECIMAL_SHIFT: 0,
+    MEDIATOR_REQUEST_GAS_LIMIT : 2000000,
+    OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252,
+    Fee Manager: 0x0000000000000000000000000000000000000000,
+  
+pending txHash 0x767945f1374cc3ecf2d1c9f1586b41c933cd3f12c208195b4bb133cf97747356
+
+[Foreign] Transferring bridge mediator proxy ownership to upgradeability admin
+pending txHash 0x34d9f2e59378526cc25991de5f2a65a5c97a77e7a16ff8a2f3cf6258c040095c
+
+Deployment has been completed.
+
+
+[   Home  ] Bridge Mediator: 0x155f3c04d64B39BC756a14A1d017d9295D23F61b
+[   Home  ] Fee Manager: 0xD7819AF155CF61D8874C6dCB7279405C4A444021
+[ Foreign ] Bridge Mediator: 0x385d2C9291f7354bc54237DE26d0352eF651b797
+[ Foreign ] Fee Manager: 0x0000000000000000000000000000000000000000
+[ Foreign ] ERC677 Token: 0xf7184E6449a522988D65F794fa53DA44Eddd78Fd
+Contracts Deployment have been saved to `bridgeDeploymentResults.json`

@@ -34,21 +34,13 @@ It was not possible to verify 0x1cc5b3dfd9e1363d00ff8ed83724a5c2ae7f6dc7 in bloc
 [Home] BridgeValidators Implementation:  0x1CC5B3DFD9E1363d00fF8eD83724A5C2ae7F6DC7
 
 hooking up eternal storage to BridgeValidators
-sendRawTxHome ===> 
 pending txHash 0xff01ccf42174f1dd11166d67598a1624e9ae53688ea250b2b14cfb7e85d5d148
 
 initializing Home Bridge Validators with following parameters:
 
 REQUIRED_NUMBER_OF_VALIDATORS: 1, VALIDATORS: 0xF16aFa5bd816C84844864ed1109F21144eF49aA4, VALIDATORS_OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252
-initializeValidators ===> 111111
-initializeValidators ===> 222222
-sendRawTxHome ===> 
 pending txHash 0xb239dda15a7b8763dc272c07b4cfab1b25f6a2ee61bb5a35a03bf95191917c3d
-initializeValidators ===> 333333
-initializeValidators ===>, {"blockHash":"0x3a4a4cd49ddf91e3e9134a26b74c60a2954f205aed392caa68879537daee95b6","blockNumber":"0x277663","contractAddress":null,"cumulativeGasUsed":"0x2d23d","from":"0x8d8d8de95df82455c887661ada3f3fa07e93fbbd","gasUsed":"0x2d23d","logs":[{"address":"0x3e8fd77ab3582d3e193efd42a4aef26f5e1bfbf6","topics":["0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"],"data":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000008905a41c79ed1f5dc9a5bae50d447af186ace252","blockNumber":"0x277663","transactionHash":"0xb239dda15a7b8763dc272c07b4cfab1b25f6a2ee61bb5a35a03bf95191917c3d","transactionIndex":"0x0","blockHash":"0x3a4a4cd49ddf91e3e9134a26b74c60a2954f205aed392caa68879537daee95b6","logIndex":"0x0","removed":false},{"address":"0x3e8fd77ab3582d3e193efd42a4aef26f5e1bfbf6","topics":["0xe366c1c0452ed8eec96861e9e54141ebff23c9ec89fe27b996b45f5ec3884987","0x000000000000000000000000f16afa5bd816c84844864ed1109f21144ef49aa4"],"data":"0x","blockNumber":"0x277663","transactionHash":"0xb239dda15a7b8763dc272c07b4cfab1b25f6a2ee61bb5a35a03bf95191917c3d","transactionIndex":"0x0","blockHash":"0x3a4a4cd49ddf91e3e9134a26b74c60a2954f205aed392caa68879537daee95b6","logIndex":"0x1","removed":false},{"address":"0x3e8fd77ab3582d3e193efd42a4aef26f5e1bfbf6","topics":["0x10dbc913050d3180c3b99f7da91fd514af7cbc9c1bb59a0da5d2bc38f0cf395a"],"data":"0x0000000000000000000000000000000000000000000000000000000000000001","blockNumber":"0x277663","transactionHash":"0xb239dda15a7b8763dc272c07b4cfab1b25f6a2ee61bb5a35a03bf95191917c3d","transactionIndex":"0x0","blockHash":"0x3a4a4cd49ddf91e3e9134a26b74c60a2954f205aed392caa68879537daee95b6","logIndex":"0x2","removed":false}],"logsBloom":"0x00000000000020000000000000000000000000000000000000800000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000002001000000000000000000000000000000000000000000000000001000000100000000000000000000000000040040400000000000000000000000000000000000000000000000000000000000000000080000000000000000100000000020000000000000000000000000000000000000000000000000000000000000000000000000000000400000000000008000000004000000000000000000000000000000000000000000400000000000000100","status":"0x1","to":"0x3e8fd77ab3582d3e193efd42a4aef26f5e1bfbf6","transactionHash":"0xb239dda15a7b8763dc272c07b4cfab1b25f6a2ee61bb5a35a03bf95191917c3d","transactionIndex":"0x0"}
-initializeValidators ===> 444444
 transferring proxy ownership to multisig for Validators Proxy contract
-sendRawTxHome ===> 
 pending txHash 0xe3153cc0ae954e0da299a7623b1fbdfa615637a0371baae36570a130a28bf009
 
 deploying HomeAMBridge storage
@@ -64,7 +56,6 @@ pending txHash 0x44f2a5c90f58b30f2c9c0747261d09f95cb75fe9a378dc498a8150143b87a06
 [Home] HomeAMBridge Implementation:  0xfFA77E978778C911B13637337Bd1506717836CeE
 
 hooking up HomeAMBridge storage to HomeAMBridge implementation
-sendRawTxHome ===> 
 pending txHash 0xf216bce2e1d60d451f9d3ba595e76ee372f66bb1d0139fafea2c6421f7701020
 
 initializing Home Bridge with following parameters:
@@ -73,10 +64,8 @@ SOURCE_CHAIN_ID: 21, DESTINATION_CHAIN_ID: 42, Home Validators: 0x3e8FD77AB3582d
   HOME_MAX_AMOUNT_PER_TX (gas limit per call): 1500000000000000000000000,
   HOME_GAS_PRICE: 1000000000, HOME_REQUIRED_BLOCK_CONFIRMATIONS : 1
   
-sendRawTxHome ===> 
 pending txHash 0x07f435c417a16a67ecbf03f18eb86e4148ef4794619fbecb509b2ca26807ad11
 transferring proxy ownership to multisig for Home bridge Proxy contract
-sendRawTxHome ===> 
 pending txHash 0xd150ff1868ef2d5d1de78c889a8a2b40da63d8f2ed60dfc728745dd317f8074b
 
 Deployment of Arbitrary Message Bridge at Home completed
@@ -101,13 +90,7 @@ pending txHash 0xaf7608eb38fd1b6de4eb56ba6de4fdea85d7a22767564f73f7ab24e9e02b5de
 initializing Foreign Bridge Validators with following parameters:
 
 REQUIRED_NUMBER_OF_VALIDATORS: 1, VALIDATORS: 0xF16aFa5bd816C84844864ed1109F21144eF49aA4, VALIDATORS_OWNER: 0x8905A41c79Ed1f5DC9a5baE50d447af186AcE252
-initializeValidators ===> 111111
-initializeValidators ===> 222222
 pending txHash 0x885eb53b89bb6df897e41e9b7503f3156060ebfe45f92455165f1e5f7b073b2d
-initializeValidators ===> 333333
-initializeValidators ===>, {"blockHash":"0x07bd3d8ba843a024980fb1b52bcb1a7ecbd97a4de3fbc6496165c9da7e6ab09b","blockNumber":"0x1486b59","contractAddress":null,"cumulativeGasUsed":"0x296902","from":"0x8d8d8de95df82455c887661ada3f3fa07e93fbbd","gasUsed":"0x2d23d","logs":[{"address":"0x84f5fab40916ae9e205005e2ec803770978fcf02","blockHash":"0x07bd3d8ba843a024980fb1b52bcb1a7ecbd97a4de3fbc6496165c9da7e6ab09b","blockNumber":"0x1486b59","data":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000008905a41c79ed1f5dc9a5bae50d447af186ace252","logIndex":"0x0","removed":false,"topics":["0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"],"transactionHash":"0x885eb53b89bb6df897e41e9b7503f3156060ebfe45f92455165f1e5f7b073b2d","transactionIndex":"0x1","transactionLogIndex":"0x0","type":"mined"},{"address":"0x84f5fab40916ae9e205005e2ec803770978fcf02","blockHash":"0x07bd3d8ba843a024980fb1b52bcb1a7ecbd97a4de3fbc6496165c9da7e6ab09b","blockNumber":"0x1486b59","data":"0x","logIndex":"0x1","removed":false,"topics":["0xe366c1c0452ed8eec96861e9e54141ebff23c9ec89fe27b996b45f5ec3884987","0x000000000000000000000000f16afa5bd816c84844864ed1109f21144ef49aa4"],"transactionHash":"0x885eb53b89bb6df897e41e9b7503f3156060ebfe45f92455165f1e5f7b073b2d","transactionIndex":"0x1","transactionLogIndex":"0x1","type":"mined"},{"address":"0x84f5fab40916ae9e205005e2ec803770978fcf02","blockHash":"0x07bd3d8ba843a024980fb1b52bcb1a7ecbd97a4de3fbc6496165c9da7e6ab09b","blockNumber":"0x1486b59","data":"0x0000000000000000000000000000000000000000000000000000000000000001","logIndex":"0x2","removed":false,"topics":["0x10dbc913050d3180c3b99f7da91fd514af7cbc9c1bb59a0da5d2bc38f0cf395a"],"transactionHash":"0x885eb53b89bb6df897e41e9b7503f3156060ebfe45f92455165f1e5f7b073b2d","transactionIndex":"0x1","transactionLogIndex":"0x2","type":"mined"}],"logsBloom":"0x00000000000020000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002001000000000000000000000000000000000000000000000000001000000100000000000000000000040000000000410000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000020000000000000000000000000000000000000000000000800000000000000000000000000000000400000000000000000000004000000000000000000000000000000000000000000400000000000000000","root":null,"status":"0x1","to":"0x84f5fab40916ae9e205005e2ec803770978fcf02","transactionHash":"0x885eb53b89bb6df897e41e9b7503f3156060ebfe45f92455165f1e5f7b073b2d","transactionIndex":"0x1"}
-initializeValidators ===> 444444
-
 Transferring ownership of ValidatorsProxy
 
 pending txHash 0xb420474d08df606fda8001c7c2d04cf036c7c2d0e0238c8696b2ea93099bc6cb
