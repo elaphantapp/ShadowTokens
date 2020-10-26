@@ -23,19 +23,6 @@ const {
 } = require('./web3')
 const verifier = require('./utils/verifier')
 
-// console.log(' web3Home===>',web3Home);
-// console.log(' web3Foreign===>',web3Foreign);
-// console.log(' deploymentPrivateKey===>',deploymentPrivateKey);
-// console.log(' FOREIGN_RPC_URL===>',FOREIGN_RPC_URL);
-// console.log(' HOME_RPC_URL===>',HOME_RPC_URL);
-// console.log('GAS_LIMIT_EXTRA===>',GAS_LIMIT_EXTRA);
-// console.log(' HOME_DEPLOYMENT_GAS_PRICE===>',HOME_DEPLOYMENT_GAS_PRICE);
-// console.log(' FOREIGN_DEPLOYMENT_GAS_PRICE===>',FOREIGN_DEPLOYMENT_GAS_PRICE);
-// console.log(' HOME_EXPLORER_URL===>',HOME_EXPLORER_URL);
-// console.log(' FOREIGN_EXPLORER_URL===>',FOREIGN_EXPLORER_URL);
-// console.log(' HOME_EXPLORER_API_KEY===>',HOME_EXPLORER_API_KEY);
-// console.log(' FOREIGN_EXPLORER_API_KEY===>',FOREIGN_EXPLORER_API_KEY);
-
 async function deployContract(contractJson, args, { from, network, nonce }) {
   let web3
   let url
@@ -73,7 +60,7 @@ async function deployContract(contractJson, args, { from, network, nonce }) {
     url,
     gasPrice
   })
-//   console.log('tx ===> ',tx );
+
   if (Web3Utils.hexToNumber(tx.status) !== 1 && !tx.contractAddress) {
     throw new Error('Tx failed')
   }
@@ -107,17 +94,17 @@ async function sendRawTxForeign(options) {
 
 async function sendRawTx({ data, nonce, to, privateKey, url, gasPrice, value }) {
   try {
-    // console.log('sendRawTx ===> ');
+
     const txToEstimateGas = {
       from: privateKeyToAddress(Web3Utils.bytesToHex(privateKey)),
       value,
       to,
       data
     }
-    // console.log('txToEstimateGas ===>', txToEstimateGas);
+
     // const estimatedGas = BigNumber(await sendNodeRequest(url, 'eth_estimateGas', txToEstimateGas))
     const estimatedGas = BigNumber(8000000);
-    console.log('estimatedGas ===>','8000000');
+    console.log('estimatedGas Error,so change to ===>','8000000');
 
     const blockData = await sendNodeRequest(url, 'eth_getBlockByNumber', ['latest', false])
     const blockGasLimit = BigNumber(blockData.gasLimit)
