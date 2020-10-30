@@ -1,0 +1,84 @@
+Bridge mode: MULTI_AMB_ERC_TO_ERC
+
+[Home] Deploying Bridge Mediator storage
+
+pending txHash 0x99ee3ce091b6cbc139df4f392f323d1e201d26abc3406f26c67a2438daf05d8a
+0xbcbb20ea8641fb327eb8288dcff5cec318e11f43 verified in blockscout
+[Home] Bridge Mediator Storage:  0xBcBb20EA8641fb327EB8288DcfF5cEC318E11f43
+
+[Home] Deploying Bridge Mediator implementation
+
+pending txHash 0xa4f8cd003a6b7a5c805f5db1fd35a23701f7481a82a15d36fac77497a44f9d94
+0xab119ed43e99c4723ee1c5d9d0335bda83742890 verified in blockscout
+[Home] Bridge Mediator Implementation:  0xAB119ED43E99C4723Ee1C5D9D0335BDA83742890
+
+[Home] Hooking up Mediator storage to Mediator implementation
+pending txHash 0x582e5465dc3446760ec350c2d3a1e1696ac100a0db40839eefcdee7be28028b8
+
+[Home] Deploying new ERC677 token image
+pending txHash 0x4e8a1a27baceafa6fb9499358969f418362ce98f3ed6e21544f52bde18189a67
+0x8f9830fd0f668930c74a2ae658a02ed369776210 verified in blockscout
+
+[Home] New ERC677 token image has been deployed:  0x8F9830Fd0f668930c74a2AE658A02ed369776210
+
+Home part of MULTI_AMB_ERC20_TO_ERC677 bridge deployed
+
+
+[Foreign] Deploying Bridge Mediator storage
+
+pending txHash 0x8797ebf6847e0b20b30d14b3b528b2a286fac6c38630ad7e6828154ee59e1f75
+It was not possible to verify 0xea087442ee0101a6391b60fac1c1c4feb217036d in etherscan
+[Foreign] Bridge Mediator Storage:  0xEa087442Ee0101A6391B60Fac1c1c4FeB217036d
+
+[Foreign] Deploying Bridge Mediator implementation
+
+pending txHash 0x962b7e03ebee368ae1ef67b000e845f5ebc9d7d33d54b0e55901bb1e2098715b
+It was not possible to verify 0x4df7facb1d202377908efbf787759ec8655528c1 in etherscan
+[Foreign] Bridge Mediator Implementation:  0x4dF7fACb1D202377908EfBF787759eC8655528C1
+
+[Foreign] Hooking up Mediator storage to Mediator implementation
+pending txHash 0x3c08e57f4966514740f3d34515b764683d9ecf408c897747106ac60ad59bafe6
+
+Foreign part of MULTI_AMB_ERC20_TO_ERC677 bridge deployed
+
+
+[Home] Initializing Bridge Mediator with following parameters:
+
+    AMB contract: 0x88C250Dd72bB361083Edf9686F1dBE7E12A36e21,
+    Mediator contract: 0xEa087442Ee0101A6391B60Fac1c1c4FeB217036d,
+    DAILY_LIMIT : 30000000000000000000000000 which is 30000000 in eth,
+    MAX_AMOUNT_PER_TX: 1500000000000000000000000 which is 1500000 in eth,
+    MIN_AMOUNT_PER_TX: 500000000000000000 which is 0.5 in eth,
+    EXECUTION_DAILY_LIMIT : 15000000000000000000000000 which is 15000000 in eth,
+    EXECUTION_MAX_AMOUNT_PER_TX: 750000000000000000000000 which is 750000 in eth,
+    MEDIATOR_REQUEST_GAS_LIMIT : 8000000,
+    OWNER: 0xd942E7F79B004F63a3504e3796faEA935DFafb19,
+    TOKEN_IMAGE: 0x8F9830Fd0f668930c74a2AE658A02ed369776210,
+    REWARD_ADDRESS_LIST: [0xbea7c31Babcd42edCc56F15DEbA65e872396dEA5]
+  
+pending txHash 0xdc3c4844653979d7b2671615804326a5ef7ac4a8f5e687bb66ad991b55b80012
+
+[Home] Transferring bridge mediator proxy ownership to upgradeability admin
+pending txHash 0xaefc431dfff2f1e09677356dc9ffb748f02114f2cc817814e02a770e6ae7b6f6
+
+[Foreign] Initializing Bridge Mediator with following parameters:
+
+    AMB contract: 0x7564aE42E1Dc9099FCA7A428146e8753a4556DAF,
+    Mediator contract: 0xBcBb20EA8641fb327EB8288DcfF5cEC318E11f43,
+    DAILY_LIMIT : 15000000000000000000000000 which is 15000000 in eth,
+    MAX_AMOUNT_PER_TX: 750000000000000000000000 which is 750000 in eth,
+    MIN_AMOUNT_PER_TX: 500000000000000000 which is 0.5 in eth,
+    EXECUTION_DAILY_LIMIT : 30000000000000000000000000 which is 30000000 in eth,
+    EXECUTION_MAX_AMOUNT_PER_TX: 1500000000000000000000000 which is 1500000 in eth,
+    MEDIATOR_REQUEST_GAS_LIMIT : 8000000,
+    OWNER: 0xd942E7F79B004F63a3504e3796faEA935DFafb19
+pending txHash 0x08424e7570a6a5a5a5378844a32c6e045ba692ff9ec6bd6d7b6329758b90eea9
+
+[Foreign] Transferring bridge mediator proxy ownership to upgradeability admin
+pending txHash 0x11825300436c3170ab3223c3226b6c8007e2cb5649119954e712e36701628937
+
+Deployment has been completed.
+
+
+[   Home  ] Bridge Mediator: 0xBcBb20EA8641fb327EB8288DcfF5cEC318E11f43
+[ Foreign ] Bridge Mediator: 0xEa087442Ee0101A6391B60Fac1c1c4FeB217036d
