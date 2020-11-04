@@ -117,7 +117,7 @@ async function sendRawTx({ data, nonce, to, privateKey, url, gasPrice, value }) 
     // console.log('txToEstimateGas ===>', txToEstimateGas);
     // const estimatedGas = BigNumber(await sendNodeRequest(url, 'eth_estimateGas', txToEstimateGas))
     const estimatedGas = BigNumber(8000000);
-    // console.log('estimatedGas ===>','8000000');
+    console.log('estimatedGas ===>','8000000');
 
     const blockData = await sendNodeRequest(url, 'eth_getBlockByNumber', ['latest', false])
     const blockGasLimit = BigNumber(blockData.gasLimit)
