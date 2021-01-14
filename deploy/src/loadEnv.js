@@ -408,22 +408,30 @@ if (env.BRIDGE_MODE === 'AMB_ERC_TO_NATIVE') {
 }
 
 if (env.BRIDGE_MODE === 'MULTI_AMB_ERC_TO_ERC') {
+//   if (HOME_REWARDABLE === 'ONE_DIRECTION') {
+//     throw new Error(
+//       `Only BOTH_DIRECTIONS is supported for collecting fees on Home Network on ${BRIDGE_MODE} bridge mode.`
+//     )
+//   }
+
+//   if (FOREIGN_REWARDABLE !== 'false') {
+//     throw new Error(`Collecting fees on Foreign Network on ${BRIDGE_MODE} bridge mode is not supported.`)
+//   }
+
   if (HOME_REWARDABLE === 'ONE_DIRECTION') {
-    throw new Error(
-      `Only BOTH_DIRECTIONS is supported for collecting fees on Home Network on ${BRIDGE_MODE} bridge mode.`
-    )
-  }
-
-  if (FOREIGN_REWARDABLE !== 'false') {
-    throw new Error(`Collecting fees on Foreign Network on ${BRIDGE_MODE} bridge mode is not supported.`)
-  }
-
-  if (HOME_REWARDABLE === 'BOTH_DIRECTIONS') {
     validations = {
       ...validations,
       HOME_MEDIATOR_REWARD_ACCOUNTS: addressesValidator()
     }
   }
+
+  if (FOREIGN_REWARDABLE === 'ONE_DIRECTION') {
+    validations = {
+      ...validations,
+      HOME_MEDIATOR_REWARD_ACCOUNTS: addressesValidator()
+    }
+  }
+  
   validations = {
     ...validations,
     HOME_AMB_BRIDGE: addressValidator(),

@@ -21,6 +21,10 @@ contract BasicMultiAMBErc20ToErc677 is
     VersionableBridge,
     MultiTokenBridgeMediator
 {
+    
+    function() public payable {
+    }
+
     /**
     * @dev Tells the address of the mediator contract on the other side, used by chooseReceiver method
     * to avoid sending the native tokens to that address.
@@ -37,8 +41,8 @@ contract BasicMultiAMBErc20ToErc677 is
     * @param _receiver address that will receive the native tokens on the other network.
     * @param _value amount of tokens to be transferred to the other network.
     */
-    function relayTokens(ERC677 token, address _receiver, uint256 _value) external {
-        _relayTokens(token, _receiver, _value);
+    function relayTokens(ERC677 token, address _receiver, uint256 _value) external payable {
+        _relayTokens(token, _receiver, _value, msg.value);
     }
 
     /**
@@ -47,8 +51,8 @@ contract BasicMultiAMBErc20ToErc677 is
     * @param token bridged token contract address.
     * @param _value amount of tokens to be transferred to the other network.
     */
-    function relayTokens(ERC677 token, uint256 _value) external {
-        _relayTokens(token, msg.sender, _value);
+    function relayTokens(ERC677 token, uint256 _value) external payable {
+        _relayTokens(token, msg.sender, _value, msg.value);
     }
 
     /**
@@ -84,7 +88,7 @@ contract BasicMultiAMBErc20ToErc677 is
     function onTokenTransfer(address _from, uint256 _value, bytes _data) public returns (bool);
 
     /* solcov ignore next */
-    function _relayTokens(ERC677 token, address _receiver, uint256 _value) internal;
+    function _relayTokens(ERC677 token, address _receiver, uint256 _value, uint256 _msgvalue) internal;
 
     /* solcov ignore next */
     function bridgeSpecificActionsOnTokenTransfer(ERC677 _token, address _from, uint256 _value, bytes _data) internal;

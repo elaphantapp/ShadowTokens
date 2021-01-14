@@ -2,7 +2,7 @@ pragma solidity 0.4.24;
 
 import "./BasicMultiAMBErc20ToErc677.sol";
 import "./TokenProxy.sol";
-import "./HomeFeeManagerMultiAMBErc20ToErc677.sol";
+import "./FeeManagerMultiAMBErc20ToErc677.sol";
 import "../../interfaces/IBurnableMintableERC677Token.sol";
 
 /**
@@ -10,7 +10,7 @@ import "../../interfaces/IBurnableMintableERC677Token.sol";
 * @dev Home side implementation for multi-erc20-to-erc677 mediator intended to work on top of AMB bridge.
 * It is designed to be used as an implementation contract of EternalStorageProxy contract.
 */
-contract HomeMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, HomeFeeManagerMultiAMBErc20ToErc677 {
+contract HomeMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, FeeManagerMultiAMBErc20ToErc677 {
     bytes32 internal constant TOKEN_IMAGE_CONTRACT = 0x20b8ca26cc94f39fab299954184cf3a9bd04f69543e4f454fab299f015b8130f; // keccak256(abi.encodePacked("tokenImageContract"))
 
     event NewTokenRegistered(address indexed foreignToken, address indexed homeToken);
@@ -27,7 +27,7 @@ contract HomeMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, HomeFeeManager
     * @param _owner address of the owner of the mediator contract.
     * @param _tokenImage address of the PermittableToken contract that will be used for deploying of new tokens.
     * @param _rewardAddreses list of reward addresses, between whom fees will be distributed.
-    * @param _fees array with initial fees for both bridge firections.
+    * _fees array with initial fees for both bridge firections.
     *   [ 0 = homeToForeignFee, 1 = foreignToHomeFee ]
     */
     function initialize(
@@ -39,7 +39,7 @@ contract HomeMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, HomeFeeManager
         address _owner,
         address _tokenImage,
         address[] _rewardAddreses,
-        uint256[2] _fees // [ 0 = homeToForeignFee, 1 = foreignToHomeFee ]
+        uint256 _fee
     ) external onlyRelevantSender returns (bool) {
         require(!isInitialized());
         require(_owner != address(0));
@@ -54,14 +54,16 @@ contract HomeMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, HomeFeeManager
         if (_rewardAddreses.length > 0) {
             _setRewardAddressList(_rewardAddreses);
         }
-        _setFee(HOME_TO_FOREIGN_FEE, address(0), _fees[0]);
-        _setFee(FOREIGN_TO_HOME_FEE, address(0), _fees[1]);
+        _setFee(_fee);
 
         setInitialize();
 
         return isInitialized();
     }
 
+    function() public payable {
+    }
+    
     /**
     * @dev Updates an address of the token image contract used for proxifying newly created tokens.
     * @param _tokenImage address of PermittableToken contract.
@@ -109,8 +111,6 @@ contract HomeMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, HomeFeeManager
         address homeToken = new TokenProxy(tokenImage(), name, symbol, _decimals, bridgeContract().sourceChainId());
         _setTokenAddressPair(_token, homeToken);
         _initializeTokenBridgeLimits(homeToken, _decimals);
-        _setFee(HOME_TO_FOREIGN_FEE, homeToken, getFee(HOME_TO_FOREIGN_FEE, address(0)));
-        _setFee(FOREIGN_TO_HOME_FEE, homeToken, getFee(FOREIGN_TO_HOME_FEE, address(0)));
         _handleBridgedTokens(ERC677(homeToken), _recipient, _value);
 
         emit NewTokenRegistered(_token, homeToken);
@@ -136,16 +136,12 @@ contract HomeMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, HomeFeeManager
     * @param _data additional transfer data, can be used for passing alternative receiver address.
     */
     function onTokenTransfer(address _from, uint256 _value, bytes _data) public returns (bool) {
+
         // if onTokenTransfer is called as a part of call to _relayTokens, this callback does nothing
-        if (!lock()) {
-            ERC677 token = ERC677(msg.sender);
-            // if msg.sender if not a valid token contract, this check will fail, since limits are zeros
-            // so the following check is not needed
-            // require(isTokenRegistered(token));
-            require(withinLimit(token, _value));
-            addTotalSpentPerDay(token, getCurrentDay(), _value);
-            bridgeSpecificActionsOnTokenTransfer(token, _from, _value, _data);
+        if(!lock()){
+            revert();
         }
+
         return true;
     }
 
@@ -156,8 +152,20 @@ contract HomeMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, HomeFeeManager
     * @param token bridge token contract address.
     * @param _receiver address that will receive the native tokens on the other network.
     * @param _value amount of tokens to be transferred to the other network.
-    */
-    function _relayTokens(ERC677 token, address _receiver, uint256 _value) internal {
+    */ 
+    function _relayTokens(ERC677 token, address _receiver, uint256 _value, uint256 _msgvalue) internal {
+        require(_value > 0);
+        if(getFee() > 0) {
+            require(_msgvalue >= getFee());
+            uint256 sendback = _msgvalue.sub(getFee());
+            if(sendback > 0) {
+                Address.safeSendValue(msg.sender, sendback);
+            }
+            bytes32 _messageId = messageId();
+            _distributeFee();
+            emit FeeDistributed(getFee(), address(0), _messageId);
+        }
+        
         // This lock is to prevent calling passMessage twice if a ERC677 token is used.
         // When transferFrom is called, after the transfer, the ERC677 token will call onTokenTransfer from this contract
         // which will call passMessage.
@@ -183,11 +191,6 @@ contract HomeMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, HomeFeeManager
     function executeActionOnBridgedTokens(address _token, address _recipient, uint256 _value) internal {
         bytes32 _messageId = messageId();
         uint256 valueToMint = _value;
-        uint256 fee = _distributeFee(FOREIGN_TO_HOME_FEE, _token, valueToMint);
-        if (fee > 0) {
-            emit FeeDistributed(fee, _token, _messageId);
-            valueToMint = valueToMint.sub(fee);
-        }
         IBurnableMintableERC677Token(_token).mint(_recipient, valueToMint);
         emit TokensBridged(_token, _recipient, valueToMint, _messageId);
     }
@@ -250,11 +253,7 @@ contract HomeMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, HomeFeeManager
         if (!lock()) {
             bytes32 _messageId = messageId();
             uint256 valueToBridge = _value;
-            uint256 fee = _distributeFee(HOME_TO_FOREIGN_FEE, _token, valueToBridge);
-            if (fee > 0) {
-                emit FeeDistributed(fee, _token, _messageId);
-                valueToBridge = valueToBridge.sub(fee);
-            }
+
             IBurnableMintableERC677Token(_token).burn(valueToBridge);
             passMessage(_token, _from, chooseReceiver(_from, _data), valueToBridge);
         }
