@@ -1847,7 +1847,6 @@ contract HomeMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, FeeManagerMult
     * @param _value amount of tokens to be transferred to the other network.
     */ 
     function _relayTokens(ERC677 token, address _receiver, uint256 _value, uint256 _msgvalue) internal {
-        
         require(_value > 0);
         if(getFee() > 0) {
             require(_msgvalue >= getFee());
@@ -1859,7 +1858,7 @@ contract HomeMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, FeeManagerMult
             _distributeFee();
             emit FeeDistributed(getFee(), address(0), _messageId);
         }
-
+        
         // This lock is to prevent calling passMessage twice if a ERC677 token is used.
         // When transferFrom is called, after the transfer, the ERC677 token will call onTokenTransfer from this contract
         // which will call passMessage.
