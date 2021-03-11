@@ -5,13 +5,14 @@ import "./BasicMultiAMBErc20ToErc677.sol";
 import "./HomeMultiAMBErc20ToErc677.sol";
 import "../../libraries/TokenReader.sol";
 import "../../libraries/SafeERC20.sol";
+import "./FeeManagerMultiAMBErc20ToErc677.sol";
 
 /**
  * @title ForeignMultiAMBErc20ToErc677
  * @dev Foreign side implementation for multi-erc20-to-erc677 mediator intended to work on top of AMB bridge.
  * It is designed to be used as an implementation contract of EternalStorageProxy contract.
  */
-contract ForeignMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677 {
+contract ForeignMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677, FeeManagerMultiAMBErc20ToErc677 {
     using SafeERC20 for address;
     using SafeERC20 for ERC677;
 
@@ -32,7 +33,9 @@ contract ForeignMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677 {
         uint256[3] _dailyLimitMaxPerTxMinPerTxArray, // [ 0 = _dailyLimit, 1 = _maxPerTx, 2 = _minPerTx ]
         uint256[2] _executionDailyLimitExecutionMaxPerTxArray, // [ 0 = _executionDailyLimit, 1 = _executionMaxPerTx ]
         uint256 _requestGasLimit,
-        address _owner
+        address _owner,
+        address[] _rewardAddreses,
+        uint256 _fee // add by river fee manage
     ) external onlyRelevantSender returns (bool) {
         require(!isInitialized());
         require(_owner != address(0));
@@ -43,12 +46,19 @@ contract ForeignMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677 {
         _setExecutionLimits(address(0), _executionDailyLimitExecutionMaxPerTxArray);
         _setRequestGasLimit(_requestGasLimit);
         setOwner(_owner);
+        if (_rewardAddreses.length > 0) {
+            _setRewardAddressList(_rewardAddreses);
+        }
+        _setFee(_fee);
 
         setInitialize();
 
         return isInitialized();
     }
 
+    function() public payable {
+    }
+    
     /**
      * @dev Executes action on the request to withdraw tokens relayed from the other network
      * @param _token address of the token contract
@@ -69,6 +79,7 @@ contract ForeignMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677 {
     * @param _data additional transfer data, can be used for passing alternative receiver address.
     */
     function onTokenTransfer(address _from, uint256 _value, bytes _data) public returns (bool) {
+
         if (!lock()) {
             ERC677 token = ERC677(msg.sender);
             bridgeSpecificActionsOnTokenTransfer(token, _from, _value, _data);
@@ -96,7 +107,20 @@ contract ForeignMultiAMBErc20ToErc677 is BasicMultiAMBErc20ToErc677 {
     * @param _receiver address that will receive the native tokens on the other network.
     * @param _value amount of tokens to be transferred to the other network.
     */
-    function _relayTokens(ERC677 token, address _receiver, uint256 _value) internal {
+    function _relayTokens(ERC677 token, address _receiver, uint256 _value, uint256 _msgvalue) internal {
+
+        require(_value > 0);
+        if(getFee() > 0) {
+            require(_msgvalue >= getFee());
+            uint256 sendback = _msgvalue.sub(getFee());
+            if(sendback > 0) {
+                Address.safeSendValue(msg.sender, sendback);
+            }
+            bytes32 _messageId = messageId();
+            _distributeFee();
+            emit FeeDistributed(getFee(), address(0), _messageId);
+        }
+
         // This lock is to prevent calling passMessage twice if a ERC677 token is used.
         // When transferFrom is called, after the transfer, the ERC677 token will call onTokenTransfer from this contract
         // which will call passMessage.

@@ -7,7 +7,7 @@ const {
 } = require('../loadEnv')
 
 const {
-  homeContracts: { EternalStorageProxy, HomeMultiAMBErc20ToErc677: HomeBridge, ERC677BridgeTokenPermittable }
+  homeContracts: { EternalStorageProxy, HomeMultiAMBErc20ToErc677: HomeBridge, ERC677BridgeTokenPermittable}
 } = require('../loadContracts')
 
 const DEPLOYMENT_ACCOUNT_ADDRESS = privateKeyToAddress(DEPLOYMENT_ACCOUNT_PRIVATE_KEY)

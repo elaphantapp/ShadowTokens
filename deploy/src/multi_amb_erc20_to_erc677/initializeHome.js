@@ -44,8 +44,7 @@ async function initializeMediator({
     owner,
     tokenImage,
     rewardAddressList,
-    homeToForeignFee,
-    foreignToHomeFee
+    fee
   }
 }) {
   console.log(`
@@ -59,14 +58,15 @@ async function initializeMediator({
     MEDIATOR_REQUEST_GAS_LIMIT : ${requestGasLimit},
     OWNER: ${owner},
     TOKEN_IMAGE: ${tokenImage},
-    REWARD_ADDRESS_LIST: [${rewardAddressList.join(', ')}]
+    REWARD_ADDRESS_LIST: [${rewardAddressList.join(', ')}],
+    REWARD FEE: ${fee} which is ${Web3Utils.fromWei(fee)} in eth,
   `)
-  if (HOME_REWARDABLE === 'BOTH_DIRECTIONS') {
-    console.log(`
-    HOME_TO_FOREIGN_FEE: ${homeToForeignFee} which is ${HOME_TRANSACTIONS_FEE * 100}%
-    FOREIGN_TO_HOME_FEE: ${foreignToHomeFee} which is ${FOREIGN_TRANSACTIONS_FEE * 100}% 
-    `)
-  }
+
+    if (HOME_REWARDABLE === 'ONE_DIRECTION') {
+        console.log(`
+        HOME_TO_FOREIGN_FEE: homeToForeignFee which is ${HOME_TRANSACTIONS_FEE * 100}%
+        `)
+    }
 
   return contract.methods
     .initialize(
@@ -78,7 +78,7 @@ async function initializeMediator({
       owner,
       tokenImage,
       rewardAddressList,
-      [homeToForeignFee.toString(), foreignToHomeFee.toString()]
+      fee
     )
     .encodeABI()
 }
@@ -90,9 +90,9 @@ async function initialize({ homeBridge, foreignBridge, homeTokenImage }) {
   console.log('\n[Home] Initializing Bridge Mediator with following parameters:')
   let homeFeeInWei = '0'
   let foreignFeeInWei = '0'
-  if (HOME_REWARDABLE === 'BOTH_DIRECTIONS') {
+
+  if (HOME_REWARDABLE === 'ONE_DIRECTION') {
     homeFeeInWei = Web3Utils.toWei(HOME_TRANSACTIONS_FEE.toString(), 'ether')
-    foreignFeeInWei = Web3Utils.toWei(FOREIGN_TRANSACTIONS_FEE.toString(), 'ether')
   }
   const rewardList = HOME_MEDIATOR_REWARD_ACCOUNTS.split(' ')
 
@@ -110,8 +110,7 @@ async function initialize({ homeBridge, foreignBridge, homeTokenImage }) {
       executionMaxPerTx: FOREIGN_MAX_AMOUNT_PER_TX,
       tokenImage: homeTokenImage,
       rewardAddressList: rewardList,
-      homeToForeignFee: homeFeeInWei,
-      foreignToHomeFee: foreignFeeInWei
+      fee: homeFeeInWei
     }
   })
 

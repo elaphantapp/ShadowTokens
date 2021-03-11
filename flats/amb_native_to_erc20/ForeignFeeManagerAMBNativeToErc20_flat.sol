@@ -217,13 +217,13 @@ contract BaseMediatorFeeManager is Ownable {
         }
         rewardAccounts = _rewardAccountList;
     }
-
+    
     /**
     * @dev Calculates the fee amount to be subtracted from the value.
     * @param _value the base value from which fees are calculated
     */
     function calculateFee(uint256 _value) external view returns (uint256) {
-        return _value.mul(fee).div(MAX_FEE);
+        return fee;
     }
 
     /**
